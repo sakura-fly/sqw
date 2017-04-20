@@ -3,12 +3,13 @@ package com.sqw.dao.impl;
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.stereotype.Component;
 
 import com.sqw.dao.UserDao;
 import com.sqw.model.User;
 import com.sqw.rowmapp.UserRowMapp;
 import com.sqw.util.Sql;
-
+@Component
 public class UserDaoImpl implements UserDao {
 
 	private JdbcOperations jdbc;

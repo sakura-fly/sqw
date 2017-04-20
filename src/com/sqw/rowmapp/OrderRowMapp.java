@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.sqw.model.Cpy;
 import com.sqw.model.Order;
+
 
 public class OrderRowMapp implements RowMapper<Order>{
 //int id, String uuid, String name, String addr, String userName
