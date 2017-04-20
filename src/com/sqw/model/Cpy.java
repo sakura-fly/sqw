@@ -2,13 +2,13 @@ package com.sqw.model;
 
 import net.sf.json.JSONObject;
 
-public class User {
-
+public class Cpy {
 	private int id;
 	private String userName;
 	private String pwd;
 	
-	public User(int id,String userName,String pwd) {
+	
+	public Cpy(int id,String userName,String pwd) {
 		this.id = id;
 		this.userName = userName;
 		this.pwd = pwd;
@@ -37,12 +37,10 @@ public class User {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
 	@Override
 	public String toString() {
 		JSONObject r = new JSONObject();
 		r.put("id", id);
 		return r.toString();
 	}
-
 }

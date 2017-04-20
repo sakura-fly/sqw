@@ -2,13 +2,12 @@ package com.sqw.model;
 
 import net.sf.json.JSONObject;
 
-public class User {
-
+public class Admin {
 	private int id;
 	private String userName;
 	private String pwd;
 	
-	public User(int id,String userName,String pwd) {
+	public Admin(int id,String userName,String pwd) {
 		this.id = id;
 		this.userName = userName;
 		this.pwd = pwd;
@@ -44,5 +43,6 @@ public class User {
 		r.put("id", id);
 		return r.toString();
 	}
-
+	
+	
 }
