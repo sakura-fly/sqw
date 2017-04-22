@@ -6,13 +6,29 @@ public class Order {
 	private String uuid;
 	private String name;
 	private String addr;
+	private String nowAddr;
 	private String userName;
 
-	public Order(int id, String uuid, String name, String addr, String userName) {
+	
+	public Order() {
+	}
+
+	public Order(String uuid, String name, String addr, String nowAddr, String userName) {
+		super();
+		this.uuid = uuid;
+		this.name = name;
+		this.addr = addr;
+		this.nowAddr = nowAddr;
+		this.userName = userName;
+	}
+
+	public Order(int id, String uuid, String name, String addr, String nowAddr, String userName) {
+		super();
 		this.id = id;
 		this.uuid = uuid;
-		this.name  = name;
+		this.name = name;
 		this.addr = addr;
+		this.nowAddr = nowAddr;
 		this.userName = userName;
 	}
 
@@ -54,6 +70,33 @@ public class Order {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getNowAddr() {
+		return nowAddr;
+	}
+
+	public void setNowAddr(String nowAddr) {
+		this.nowAddr = nowAddr;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("{\"id\":\"");
+		builder.append(id);
+		builder.append("\", \"uuid\":\"");
+		builder.append(uuid);
+		builder.append("\", \"name\":\"");
+		builder.append(name);
+		builder.append("\", \"addr\":\"");
+		builder.append(addr);
+		builder.append("\", \"nowAddr\":\"");
+		builder.append(nowAddr);
+		builder.append("\", \"userName\":\"");
+		builder.append(userName);
+		builder.append("\"}");
+		return builder.toString();
 	}
 
 }
