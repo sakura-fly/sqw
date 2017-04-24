@@ -7,6 +7,9 @@ public class Cpy {
 	private String userName;
 	private String pwd;
 	
+	public Cpy() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Cpy(int id,String userName,String pwd) {
 		this.id = id;

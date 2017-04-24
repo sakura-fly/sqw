@@ -8,6 +8,10 @@ public class User {
 	private String userName;
 	private String pwd;
 	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public User(int id,String userName,String pwd) {
 		this.id = id;
 		this.userName = userName;

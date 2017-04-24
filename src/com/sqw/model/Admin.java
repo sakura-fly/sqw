@@ -1,6 +1,5 @@
 package com.sqw.model;
 
-import net.sf.json.JSONObject;
 
 public class Admin {
 	private int id;
@@ -11,6 +10,10 @@ public class Admin {
 		this.id = id;
 		this.userName = userName;
 		this.pwd = pwd;
+	}
+	
+	public Admin() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -36,13 +39,20 @@ public class Admin {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
+
 	@Override
 	public String toString() {
-		JSONObject r = new JSONObject();
-		r.put("id", id);
-		return r.toString();
+		StringBuilder builder = new StringBuilder();
+		builder.append("{\"id\":\"");
+		builder.append(id);
+		builder.append("\", \"userName\":\"");
+		builder.append(userName);
+		builder.append("\", \"pwd\":\"");
+		builder.append(pwd);
+		builder.append("\"}");
+		return builder.toString();
 	}
+	
 	
 	
 }

@@ -2,6 +2,7 @@ package com.sqw.dao.impl;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,14 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public Admin login(Admin a) {
-		return jdbc.queryForObject(Sql.ADMIN_LOGIN, new AdminRowMapp(), a.getUserName(), a.getPwd());
+		Admin ad = null;
+		try {
+			ad = jdbc.queryForObject(Sql.ADMIN_LOGIN, new AdminRowMapp(), a.getUserName(), a.getPwd());
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ad;
 	}
 
 }

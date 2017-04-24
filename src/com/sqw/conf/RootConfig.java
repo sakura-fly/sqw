@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import com.sqw.util.DbConstanst;
 
 @Configuration
-@ComponentScan(basePackages={"com.odyz.dao"} ,excludeFilters = { @Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class) })
+@ComponentScan(basePackages={"com.sqw.dao"} ,excludeFilters = { @Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class) })
 public class RootConfig {
 	@Bean
 	public DataSource dataSource() {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +27,8 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Order> list(int skip, int limit) {
 		List<Order> res = new ArrayList<Order>();
 		try {
-			jdbc.query(Sql.ORDER_LIST, new Object[]{} , new OrderRowMapp());	
+			System.out.println("skip={" + skip + "},limit={" + limit + "}");
+			res = jdbc.query(Sql.ORDER_LIST, new Object[]{skip,limit} , new OrderRowMapp());	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -35,7 +37,14 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public Order findByUUID(String uuid) {
-		return jdbc.queryForObject(Sql.ORDER_FIND_BY_UUID, new OrderRowMapp(),uuid);
+		Order oo = null;
+		try {
+			oo = jdbc.queryForObject(Sql.ORDER_FIND_BY_UUID, new OrderRowMapp(),uuid);
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return oo;
 	}
 
 	@Override
@@ -46,6 +55,18 @@ public class OrderDaoImpl implements OrderDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			r = -1;
+		}
+		return r;
+	}
+
+	@Override
+	public int orderAddrNow(String uuid, String nowAddr) {
+		int r = 1;
+		try {
+			jdbc.update(Sql.ORDER_ADDR_NOW,nowAddr,uuid);
+		} catch (Exception e) {
+			r = -1;
+			e.printStackTrace();
 		}
 		return r;
 	}

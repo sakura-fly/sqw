@@ -2,6 +2,7 @@ package com.sqw.dao.impl;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,14 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User login(User u) {
-		return jdbc.queryForObject(Sql.USER_LOGIN, new UserRowMapp(), u.getUserName(), u.getPwd());
+		User us = null;
+		try {
+			us = jdbc.queryForObject(Sql.USER_LOGIN, new UserRowMapp(), u.getUserName(), u.getPwd());
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return us;
 	}
 
 }

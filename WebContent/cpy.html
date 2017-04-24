@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员</title>
+</head>
+<body>
+<h1>登录</h1>
+	<form action="cpy/login" method="post">
+		用户名<input type="text" name="userName" id="" value="sqw"> 
+		密码<input type="text" name="pwd" id=""  value="123456">
+		<input type="submit" name="" id=""  value="登录">
+	</form>
+<h1>获取订单列表</h1>
+<form action="cpy/orderlist" method="post">
+	页码<input type="text" name="pageNum" id="" value="1"> 
+		每页数量<input type="text" name="pageSize" id=""  value="5">
+		<input type="submit" name="" id=""  value="ok">
+</form>
+<h1>查询订单</h1>
+<form action="cpy/orderone" method="post">
+	编号<input type="text" name="uuid" id="" value="A00C39A7ECC14F71B421BB2D46CDEF01"> 
+		<input type="submit" name="" id=""  value="ok">
+</form>
+<h1>跟总订单（修改当前位置）</h1>
+<form action="cpy/orderaddrnow" method="post">
+	编号<input type="text" name="uuid" id="" value="059976D508B44912B9AC9663520B9947">
+	当前地址<input type="text" name="now_addr" id="" value="火星">
+		<input type="submit" name="" id=""  value="ok">
+</form>
+</body>
+</html>

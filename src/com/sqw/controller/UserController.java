@@ -3,6 +3,7 @@ package com.sqw.controller;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.io.PrintWriter;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,9 @@ public class UserController {
 	public void login(User u,PrintWriter out){
 		u = ud.login(u);
 		if(u != null){
-			DefRes.dr(1, "ok");
+			out.print(DefRes.dr(1, "ok"));
 		} else {
-			DefRes.dr(-1, "no");
+			out.print(DefRes.dr(-1, "no"));
 		}
 	}
 	
@@ -42,7 +43,13 @@ public class UserController {
 	@RequestMapping(value="/orderadd",method=POST)
 	public void addOrder(Order o,PrintWriter out){
 		
-		out.print(od.addOrder(o));
+		o.setUuid(UUID.randomUUID().toString().replace("-", "").toUpperCase());
+		int res = od.addOrder(o);
+		if(res > 0){
+			out.print(DefRes.dr(1, o.getUuid()));
+		} else {
+			out.print(DefRes.dr(-1, "err"));
+		}
 	}
 	
 	@RequestMapping(value="/orderone",method=POST)

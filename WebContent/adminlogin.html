@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员</title>
+</head>
+<body>
+<h1>登录</h1>
+	<form action="admin/login" method="post" method="post">
+		用户名<input type="text" name="userName" id="" value="sqw"> 
+		密码<input type="text" name="pwd" id=""  value="123456">
+		<input type="submit" name="" id=""  value="登录">
+	</form>
+<h1>获取订单列表</h1>
+<form action="admin/orderlist" method="post"> 
+	页码<input type="text" name="pageNum" id="" value="1"> 
+		每页数量<input type="text" name="pageSize" id=""  value="5">
+		<input type="submit" name="" id=""  value="ok">
+</form>
+<h1>查询订单</h1>
+<form action="admin/orderlist" method="post">
+	编号<input type="text" name="uuid" id="" value="1"> 
+		<input type="submit" name="" id=""  value="ok">
+</form>
+<h1>添加订单</h1>
+<form action="admin/orderadd" method="post">
+	目的地<input type="text" name="addr" id="" value="地球"> 
+	用户名<input type="text" name="userName" id="" value="sqw">
+		<input type="submit" name="" id=""  value="ok">
+</form>
+</body>
+</html>

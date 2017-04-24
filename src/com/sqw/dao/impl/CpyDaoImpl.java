@@ -2,6 +2,7 @@ package com.sqw.dao.impl;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,13 @@ private JdbcOperations jdbc;
 
 	@Override
 	public Cpy login(Cpy c) {
-		return jdbc.queryForObject(Sql.CPY_LOGIN, new CpyRowMapp(),c.getUserName(),c.getPwd());
+		Cpy  cpy = null;
+		try {
+			cpy =  jdbc.queryForObject(Sql.CPY_LOGIN, new CpyRowMapp(),c.getUserName(),c.getPwd());
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		}
+		return cpy;
 	}
 
 }
