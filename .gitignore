@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 /build/
 /.classpath
 /.project
 .*
-=======
-/.classpath
-/.project
-
-.*
->>>>>>> branch 'new' of git@github.com:sakura-fly/sqw.git
 *.class
