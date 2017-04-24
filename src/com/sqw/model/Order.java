@@ -8,21 +8,25 @@ public class Order {
 	private String addr;
 	private String nowAddr;
 	private String userName;
+	private int uid;
 
 	
 	public Order() {
 	}
 
-	public Order(String uuid, String name, String addr, String nowAddr, String userName) {
+
+	public Order(String uuid, String name, String addr, String nowAddr, String userName, int uid) {
 		super();
 		this.uuid = uuid;
 		this.name = name;
 		this.addr = addr;
 		this.nowAddr = nowAddr;
 		this.userName = userName;
+		this.uid = uid;
 	}
 
-	public Order(int id, String uuid, String name, String addr, String nowAddr, String userName) {
+
+	public Order(int id, String uuid, String name, String addr, String nowAddr, String userName, int uid) {
 		super();
 		this.id = id;
 		this.uuid = uuid;
@@ -30,7 +34,9 @@ public class Order {
 		this.addr = addr;
 		this.nowAddr = nowAddr;
 		this.userName = userName;
+		this.uid = uid;
 	}
+
 
 	public int getId() {
 		return id;
@@ -79,6 +85,16 @@ public class Order {
 	public void setNowAddr(String nowAddr) {
 		this.nowAddr = nowAddr;
 	}
+
+	public int getUid() {
+		return uid;
+	}
+
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
 
 	@Override
 	public String toString() {

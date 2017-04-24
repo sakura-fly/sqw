@@ -13,6 +13,7 @@ import com.sqw.dao.OrderDao;
 import com.sqw.model.Order;
 import com.sqw.rowmapp.OrderRowMapp;
 import com.sqw.util.Sql;
+
 @Component
 public class OrderDaoImpl implements OrderDao {
 
@@ -27,8 +28,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Order> list(int skip, int limit) {
 		List<Order> res = new ArrayList<Order>();
 		try {
-			System.out.println("skip={" + skip + "},limit={" + limit + "}");
-			res = jdbc.query(Sql.ORDER_LIST, new Object[]{skip,limit} , new OrderRowMapp());	
+			res = jdbc.query(Sql.ORDER_LIST, new Object[] { skip, limit }, new OrderRowMapp());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,7 +39,7 @@ public class OrderDaoImpl implements OrderDao {
 	public Order findByUUID(String uuid) {
 		Order oo = null;
 		try {
-			oo = jdbc.queryForObject(Sql.ORDER_FIND_BY_UUID, new OrderRowMapp(),uuid);
+			oo = jdbc.queryForObject(Sql.ORDER_FIND_BY_UUID, new OrderRowMapp(), uuid);
 		} catch (DataAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class OrderDaoImpl implements OrderDao {
 	public int addOrder(Order o) {
 		int r = 1;
 		try {
-			jdbc.update(Sql.ORDER_ADD,o.getUuid(),o.getUserName(),o.getAddr(),o.getName());
+			jdbc.update(Sql.ORDER_ADD, o.getUuid(), o.getUserName(), o.getAddr(), o.getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			r = -1;
@@ -63,7 +63,7 @@ public class OrderDaoImpl implements OrderDao {
 	public int orderAddrNow(String uuid, String nowAddr) {
 		int r = 1;
 		try {
-			jdbc.update(Sql.ORDER_ADDR_NOW,nowAddr,uuid);
+			jdbc.update(Sql.ORDER_ADDR_NOW, nowAddr, uuid);
 		} catch (Exception e) {
 			r = -1;
 			e.printStackTrace();
