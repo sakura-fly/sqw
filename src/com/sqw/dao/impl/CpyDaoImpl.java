@@ -3,12 +3,13 @@ package com.sqw.dao.impl;
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.stereotype.Component;
 
 import com.sqw.dao.CpyDao;
 import com.sqw.model.Cpy;
 import com.sqw.rowmapp.CpyRowMapp;
 import com.sqw.util.Sql;
-
+@Component
 public class CpyDaoImpl implements CpyDao{
 	
 	
