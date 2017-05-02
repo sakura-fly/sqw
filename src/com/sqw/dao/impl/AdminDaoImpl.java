@@ -27,7 +27,6 @@ public class AdminDaoImpl implements AdminDao {
 		try {
 			ad = jdbc.queryForObject(Sql.ADMIN_LOGIN, new AdminRowMapp(), a.getUserName(), a.getPwd());
 		} catch (DataAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ad;
@@ -35,8 +34,14 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public int add(Admin a) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = -1;
+		try {
+			res = jdbc.update(Sql.ADMIN_ADD,a.getUserName(),a.getPwd());
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 }

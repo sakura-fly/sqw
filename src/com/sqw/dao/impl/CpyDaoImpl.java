@@ -32,4 +32,16 @@ private JdbcOperations jdbc;
 		return cpy;
 	}
 
+	@Override
+	public int add(Cpy c) {
+		int res = -1;
+		try {
+			res = jdbc.update(Sql.CAR_ADD,c.getUserName(),c.getPwd());
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }
