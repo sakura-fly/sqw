@@ -32,4 +32,16 @@ public class UserDaoImpl implements UserDao {
 		return us;
 	}
 
+	@Override
+	public int add(User u) {
+		int res = -1;
+		try {
+			res = jdbc.update(Sql.USER_ADD, u.getUserName(),u.getPwd());
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }

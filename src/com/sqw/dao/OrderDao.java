@@ -9,4 +9,5 @@ public interface OrderDao {
 	public Order findByUUID(String uuid);
 	public int addOrder(Order o);
 	public int orderAddrNow(String uuid,String nowAddr);
+	public List<Order> listByUserName(int skip,int limit,String userName);
 }

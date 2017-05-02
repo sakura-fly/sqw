@@ -33,4 +33,10 @@ public class AdminDaoImpl implements AdminDao {
 		return ad;
 	}
 
+	@Override
+	public int add(Admin a) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

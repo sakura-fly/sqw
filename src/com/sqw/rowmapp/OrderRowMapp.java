@@ -12,7 +12,6 @@ public class OrderRowMapp implements RowMapper<Order> {
 	@Override
 	public Order mapRow(ResultSet rs, int arg1) throws SQLException {
 		return new Order(rs.getInt("id"), rs.getString("uuid"), rs.getString("name"), rs.getString("addr"),
-				rs.getString("addr_now"), rs.getString("user_name"), rs.getInt("uid"));
+				rs.getString("addr_now"), rs.getString("user_name"), rs.getString("car_num"),rs.getTimestamp("time"),rs.getTimestamp("send_time"),rs.getInt("uid"));
 	}
-
 }

@@ -71,4 +71,15 @@ public class OrderDaoImpl implements OrderDao {
 		return r;
 	}
 
+	@Override
+	public List<Order> listByUserName(int skip, int limit, String userName) {
+		List<Order> res = new ArrayList<Order>();
+		try {
+			res = jdbc.query(Sql.ORDER_LIST_BY_USER_NAME, new Object[] { userName, skip, limit }, new OrderRowMapp());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }
