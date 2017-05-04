@@ -28,7 +28,6 @@ public class CaoDaoImpl implements CarDao {
 		try {
 			res = jdbc.update(Sql.CAR_ADD, c.getCarNum(), c.getType());
 		} catch (DataAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return res;
@@ -43,7 +42,7 @@ public class CaoDaoImpl implements CarDao {
 
 	@Override
 	public List<Car> list(int skip, int limit, String query) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

@@ -1,6 +1,7 @@
 package com.sqw.model;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class Order {
 
@@ -13,6 +14,7 @@ public class Order {
 	private String carNum;
 	private Timestamp time; 
 	private Timestamp sendTime;
+	private String wl;
 	private int uid;
 
 	
@@ -21,13 +23,8 @@ public class Order {
 
 
 
-
-
-
-
-
 	public Order(int id, String uuid, String name, String addr, String nowAddr, String userName, String carNum,
-			Timestamp time, Timestamp sendTime, int uid) {
+			Timestamp time, Timestamp sendTime, String wl, int uid) {
 		super();
 		this.id = id;
 		this.uuid = uuid;
@@ -38,8 +35,17 @@ public class Order {
 		this.carNum = carNum;
 		this.time = time;
 		this.sendTime = sendTime;
+		this.wl = wl;
 		this.uid = uid;
 	}
+
+
+
+
+
+
+
+
 
 
 
@@ -172,6 +178,28 @@ public class Order {
 
 
 
+	public String getWl() {
+		return wl;
+	}
+
+
+
+
+
+
+
+
+	public void setWl(String wl) {
+		this.wl = wl;
+	}
+
+
+
+
+
+
+
+
 	public int getUid() {
 		return uid;
 	}
@@ -203,6 +231,8 @@ public class Order {
 		builder.append(time);
 		builder.append("\", \"sendTime\":\"");
 		builder.append(sendTime);
+		builder.append("\", \"wl\":\"");
+		builder.append(Arrays.asList(wl.substring(0, wl.length() - 1)));
 		builder.append("\", \"uid\":\"");
 		builder.append(uid);
 		builder.append("\"}");

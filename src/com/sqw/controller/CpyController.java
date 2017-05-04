@@ -44,7 +44,14 @@ public class CpyController {
 
 	@RequestMapping(value="/orderaddrnow",method=POST)
 	public void orderAddrNow(String uuid,String now_addr , PrintWriter out){
-		out.print(od.orderAddrNow(uuid, now_addr));
+		int r = od.orderAddrNow(uuid, now_addr);
+		if(r > 0){
+			r = od.updateWl(uuid, now_addr);
+			out.print(r);
+		} else {
+			out.print(r);
+		}
+		
 	}
 	
 	

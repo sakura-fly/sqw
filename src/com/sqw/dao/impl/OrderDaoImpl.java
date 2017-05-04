@@ -9,10 +9,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Component;
 
+import com.resfmt.TimeRes;
 import com.sqw.dao.OrderDao;
 import com.sqw.model.Order;
 import com.sqw.rowmapp.OrderRowMapp;
 import com.sqw.util.Sql;
+
+import net.sf.json.JSONObject;
 
 @Component
 public class OrderDaoImpl implements OrderDao {
@@ -77,6 +80,21 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			res = jdbc.query(Sql.ORDER_LIST_BY_USER_NAME, new Object[] { userName, skip, limit }, new OrderRowMapp());
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int updateWl(String uuid, String addr) {
+		int res = -2;
+		try {
+			JSONObject j = new JSONObject();
+			j.put("time", TimeRes.time());
+			j.put("addr", addr);
+			res = jdbc.update(Sql.ORDER_WL,j.toString() + ",",uuid);
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return res;

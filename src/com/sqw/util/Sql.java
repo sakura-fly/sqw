@@ -14,4 +14,6 @@ public class Sql {
 	public static final String USER_ADD = "insert into user (user_name,pwd) values (?,?)";
 	public static final String CAR_ADD = "insert into car (car_num,type) values (?,?)";
 	public static final String CAR_LIST = "select * from car limit ?,?";
+	public static final String ORDER_WL = "update orders set wl = concat(wl,\'\',?) where uuid = ?";
+	public static final String UPDATE_ORDER = "update orders set ";
 }
